@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+
+<meta charset="UTF-8" name="viewport"
+              content="width=device-width,
+                       initial-scale=1.0" />
+        <title>Image Classifier using ML5 js</title>
+        <script src=
+"https://unpkg.com/ml5@0.4.3/dist/ml5.min.js">
+        </script>
+        <script>
+        var loadFile = function (event) {
+        var image = document.getElementById("image");
+        image.src = URL.createObjectURL(event.target.files[0]);
+       };
+       const classifier = ml5.imageClassifier
+       ("MobileNet", modelLoaded);
+ 
+       // When the model is loaded
+       function modelLoaded() {
+       console.log("Model Loaded!");
+       }
+             
+       function predict() {
+       classifier.predict(document.getElementById("image"),
+              function (err, results) {
+                    alert(results[0].label);
+                });
+            }
+        </script>
+    </head>
+    <body>
+        <center>
+           
+         
+            <h1 style="color:whitesmoke:"<pclass=margin-top>NASA Space Chalange</h1>
+          <pclass=margin-top></p>
+            <b>
+                Natural Disaster Classification using
+                Javascript.
+               
+            </b>
+            </br>
+            <img src="" alt="" id="image"
+                 width="315px" height="200px" />
+            </br></br>
+            <input type="file" accept="image/*"
+                   onchange="loadFile(event)"
+                   name="image" id="file" />
+            <button onclick="predict()">Predict</button>
+        </center>
+   <style>
+    body {
+      font-family: Courier, Courier, Courier;
+    }
+
+    .navbar {
+      overflow: hidden;
+      background-color: navy;
+    }
+
+    .navbar a {
+      float: left;
+      font-size: 16px;
+      color: white;
+      text-align: center;
+      padding: 14px 16px;
+      text-decoration: none;
+    }
+
+    .dropdown {
+      float: left;
+      overflow: hidden;
+    }
+
+    .dropdown .dropbtn {
+      font-size: 16px;
+      border: none;
+      outline: none;
+      color: white;
+      padding: 14px 16px;
+      background-color: inherit;
+      font-family: inherit;
+      margin: 0;
+    }
+
+    .navbar a:hover,
+    .dropdown:hover .dropbtn {
+      background-color: ghostwhite;
+      color: navy;
+    }
+
+    .dropdown-content {
+      display: none;
+      position: absolute;
+      background-color: navy;
+      min-width: 160px;
+      box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+      z-index: 1;
+    }
+
+    .dropdown-content a {
+      float: none;
+      color: ghostwhite;
+      padding: 12px 16px;
+      text-decoration: none;
+      display: block;
+      text-align: left;
+    }
+
+    .dropdown-content a:hover {
+      background-color: #ddd;
+    }
+
+    .dropdown:hover .dropdown-content {
+      display: block;
+    }
+
+    .info {
+      background-color: navy;
+      color: white;
+      border: 2px solid black;
+      margin: 20px;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      font-family: "Courier";
+      margin-top: 50px;
+      background-color: darkblue;
+    }
+  </style>
+</head>
+
+<body>
+   
+</body>
+</html>
